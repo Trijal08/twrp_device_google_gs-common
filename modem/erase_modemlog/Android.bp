@@ -1,0 +1,15 @@
+//
+// SPDX-FileCopyrightText: 2024 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+package {
+    default_applicable_licenses: [ "Android-Apache-2.0" ],
+}
+
+sh_binary {
+    name: "erase_modemlog.sh",
+    src: "erase_modemlog.sh",
+    init_rc: ["erase_modemlog.rc"],
+    vendor: true,
+}

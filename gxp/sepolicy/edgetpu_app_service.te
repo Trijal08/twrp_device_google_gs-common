@@ -1,0 +1,6 @@
+# Allow Edgetpu App Service to access the GXP device and read GXP properties.
+allow edgetpu_app_server gxp_device:chr_file rw_file_perms;
+get_prop(edgetpu_app_server, vendor_gxp_prop)
+
+# Allows Edgetpu App Service to search for GXP firmware file.
+allow edgetpu_app_server vendor_fw_file:dir search;

@@ -1,0 +1,9 @@
+type erase_modemlog, domain;
+type erase_modemlog_exec, vendor_file_type, exec_type, file_type;
+
+init_daemon_domain(erase_modemlog)
+
+allow erase_modemlog vendor_slog_file:dir create_dir_perms;
+allow erase_modemlog vendor_slog_file:file create_file_perms;
+
+allow erase_modemlog vendor_toolbox_exec:file execute_no_trans;

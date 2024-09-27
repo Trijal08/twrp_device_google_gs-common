@@ -1,0 +1,2 @@
+# gps vendor property
+set_prop(vendor_init, vendor_gps_prop)

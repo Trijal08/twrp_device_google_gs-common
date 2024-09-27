@@ -1,0 +1,28 @@
+# aocxd server domain
+type aocxd, domain;
+type aocxd_exec, vendor_file_type, exec_type, file_type;
+init_daemon_domain(aocxd)
+
+# sysfs operations
+allow aocxd sysfs_aoc:dir search;
+
+# dev operations
+allow aocxd aoc_device:chr_file rw_file_perms;
+
+# allow inotify to watch for additions/removals from /dev
+allow aocxd device:dir r_dir_perms;
+
+# set properties
+set_prop(aocxd, vendor_aoc_prop);
+
+# allow binder access
+vndbinder_use(aocxd);
+
+# allow managing wakelocks
+wakelock_use(aocxd);
+
+# add aocx service to the domain
+add_service(aocxd, aocx);
+
+# allow managing thread priority
+allow aocxd self:global_capability_class_set sys_nice;

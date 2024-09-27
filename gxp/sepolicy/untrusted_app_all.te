@@ -1,0 +1,3 @@
+# Allows applications to access the GXP device, except open,
+# which is guarded by the EdgeTPU service.
+allow untrusted_app_all gxp_device:chr_file { getattr read write ioctl map };

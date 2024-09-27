@@ -1,0 +1,37 @@
+#
+# Context hub multiclient HAL common selinux policies
+#
+
+# Permit communication with AoC
+allow hal_contexthub_default aoc_device:chr_file rw_file_perms;
+
+# Allow context hub HAL to determine AoC's current clock
+allow hal_contexthub_default sysfs_aoc:dir search;
+allow hal_contexthub_default sysfs_aoc_boottime:file r_file_perms;
+
+# Allow context hub HAL to create thread to watch AOC's device
+allow hal_contexthub_default device:dir r_dir_perms;
+
+# Allow context hub HAL to use the USF low latency transport
+usf_low_latency_transport(hal_contexthub_default)
+
+# Allow context hub HAL to talk to the WiFi HAL
+binder_call(hal_contexthub_default, hal_wifi_ext)
+allow hal_contexthub_default hal_wifi_ext_service:service_manager find;
+
+# Allow context hub HAL to talk to stats service
+binder_call(hal_contexthub_default, stats_service_server)
+allow hal_contexthub_default fwk_stats_service:service_manager find;
+
+# Allow context hub HAL to write data to /data/vendor/chre/ directory
+allow hal_contexthub_default chre_data_file:dir create_dir_perms;
+allow hal_contexthub_default chre_data_file:file create_file_perms;
+
+# Allow context hub HAL to use WakeLock
+wakelock_use(hal_contexthub_default)
+
+# Allow context hub HAL to block suspend, which is required to use EPOLLWAKEUP
+allow hal_contexthub_default self:global_capability2_class_set block_suspend;
+
+# Allow binder calls with clients
+binder_call(hal_contexthub_default, hal_sensors_default)

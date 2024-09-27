@@ -1,0 +1,2 @@
+/vendor/bin/hw/android\.hardware\.gnss-service\.pixel             u:object_r:hal_gnss_pixel_exec:s0
+

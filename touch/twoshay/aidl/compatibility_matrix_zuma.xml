@@ -1,0 +1,26 @@
+<compatibility-matrix version="1.0" type="framework">
+    <hal format="aidl" optional="true">
+        <name>com.google.input</name>
+        <version>2-3</version>
+        <interface>
+            <name>ITouchContextService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>com.google.input.algos.gril</name>
+        <version>2-3</version>
+        <interface>
+            <name>IGrilAntennaTuningService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>com.google.input.algos.spd</name>
+        <version>2-3</version>
+        <interface>
+            <name>IScreenProtectorDetectorService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</compatibility-matrix>

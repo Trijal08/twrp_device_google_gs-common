@@ -1,0 +1,2 @@
+# gps coredump node
+genfscon sysfs /devices/platform/gnssif/coredump                                                                     u:object_r:sysfs_gps:s0

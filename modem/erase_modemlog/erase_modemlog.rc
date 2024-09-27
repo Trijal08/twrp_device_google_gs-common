@@ -1,0 +1,10 @@
+#
+# SPDX-FileCopyrightText: 2024 The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+service vendor.erase_modemlog.rc /vendor/bin/erase_modemlog.sh
+    class main
+    user system
+    group system
+    oneshot

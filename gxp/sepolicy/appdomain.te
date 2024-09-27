@@ -1,0 +1,2 @@
+# Allow apps to read gxp properties
+get_prop(appdomain, vendor_gxp_prop)
